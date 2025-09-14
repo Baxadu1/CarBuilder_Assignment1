@@ -42,5 +42,14 @@ public class Car {
             this.hasTripComputer = tripComputer;
             return this;
         }
-
+        public Car build() {
+            if (seats <= 0) {
+                throw new IllegalStateException("Car must have at least 1 seat!");
+            }
+            if (engine == null) {
+                throw new IllegalStateException("Engine must be set!");
+            }
+            return new Car(this);
+        }
+    }
 }
